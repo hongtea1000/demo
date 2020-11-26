@@ -18,6 +18,10 @@ public class XlsToCsvUtil {
 		
 		//개별2
 		String test = "";
+		
+		//개별2-1
+		String test1 = "";
+				
 	}
 	
 }

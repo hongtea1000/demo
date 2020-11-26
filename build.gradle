@@ -1,0 +1,57 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+    all*.exclude group: 'xml-apis'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.springframework.boot:spring-boot-starter-integration'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0'
+	
+	//compile group: 'org.apache.tomcat.embed', name:'tomcat-embed-jasper', version:'7.0.42' 
+	compile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: '2.4'
+	compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+	
+	compile group: 'org.apache.commons', name: 'commons-collections4', version:'4.0'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.3.2'
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version:'1.9.2'
+	compile group: 'commons-fileupload', name: 'commons-fileupload', version:'1.3.1'
+	compile group: 'commons-io', name: 'commons-io', version:'2.4'
+	compile group: 'commons-codec', name: 'commons-codec', version:'1.9'
+	
+	compile group: 'org.apache.poi', name: 'poi', version:'3.10-FINAL'
+	//compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9'
+	compile group: 'org.json', name: 'json', version: '20190722'
+	compile group: 'javax.json', name: 'javax.json-api', version: '1.0-b01'
+	compile group: 'net.sf.json-lib', name: 'json-lib', version: '2.4', classifier: 'jdk15'
+	compile group: 'log4sql', name: 'log4sql', version: '7.8'
+	
+	
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5'
+		
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		//exclude group: 'javax.xml.parsers', module: 'jaxp-api'
+	}
+	
+}
+
+test {
+	useJUnitPlatform()
+}

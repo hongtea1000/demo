@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-..mybatis.org..DTD Mapper 3.0..EN" "http:..mybatis.org.dtd.mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.web.test.mapper.TestMapper">
+	
+	<insert id="insertPerfectwin" parameterType="java.util.HashMap">
+		INSERT	/** [2019.08.11] com.example.demo.mapper.TestMapper.xml - insertPerfectwin  */
+			INTO tmp_perfectwin (
+				proc_start_time
+				,tuid
+				,tobe_msg_id
+				,auid
+				,asis_raw_file_loc
+				,tobe_raw_file_loc
+				,asis_http_cd
+				,tobe_http_cd
+				,pre_proc_status
+				,result_status
+				,result_dt
+				,result_file_data
+				,proc_type
+				,ref1
+				,ref2
+				,ref3
+				,ref4
+				,ref5
+				,ref6
+				,ref7
+				,ref8
+				,ref9
+				,ref10
+			)
+		VALUES(
+				#{proc_start_time}
+				,#{tuid}
+				,#{tobe_msg_id}
+				,#{auid}
+				,#{asis_raw_file_loc}
+				,#{tobe_raw_file_loc}
+				,#{asis_http_cd}
+				,#{tobe_http_cd}
+				,#{pre_proc_status}
+				,#{result_status}
+				,#{result_dt}
+				,#{result_file_data}
+				,#{proc_type}
+				,#{ref1}
+				,#{ref2}
+				,#{ref3}
+				,#{ref4}
+				,#{ref5}
+				,#{ref6}
+				,#{ref7}
+				,#{ref8}
+				,#{ref9}
+				,#{ref10}
+		)     
+		</insert>
+		
+		<select id="selectPerfectwinList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT	/** [2019.09.07]  com.example.demo.mapper.TestMapper.xml - selectPerfectwinList    */
+			 	proc_start_time
+				,tuid
+				,tobe_msg_id
+				,auid
+				,asis_raw_file_loc
+				,tobe_raw_file_loc
+				,asis_http_cd
+				,tobe_http_cd
+				,pre_proc_status
+				,result_status
+				,result_dt
+				,result_file_data
+				,proc_type
+				,ref1
+				,ref2
+				,ref3
+				,ref4
+				,ref5
+				,ref6
+				,ref7
+				,ref8
+				,ref9
+				,ref10
+		FROM
+			tmp_perfectwin
+		WHERE	1=1
+		<if test='proc_start_time != null and proc_start_time != ""'>
+		AND		proc_start_time LIKE CONCAT('%',#{proc_start_time},'%')
+		</if>
+		<if test='tobe_msg_id != null and tobe_msg_id != ""'>
+		AND		tobe_msg_id = #{tobe_msg_id}
+		</if>
+		<if test='proc_type != null and proc_type != ""'>
+		AND		proc_type = #{proc_type}
+		</if>
+		ORDER BY ref3 DESC
+		
+	</select>
+	
+	<select id="selectDistinctPerfectwinList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select	
+				tobe_msg_id,
+				ref1, 
+				ref2, 
+				ref3, 
+				ref4, 
+				ref5,
+				ref6,
+				ref7 
+		from tmp_perfectwin 
+		WHERE	1=1
+		<if test='proc_start_time != null and proc_start_time != ""'>
+		AND		proc_start_time LIKE CONCAT('%',#{proc_start_time},'%')
+		</if>
+		<if test='tobe_msg_id != null and tobe_msg_id != ""'>
+		AND		tobe_msg_id = #{tobe_msg_id}
+		</if>
+		<if test='proc_type != null and proc_type != ""'>
+		AND		proc_type = #{proc_type}
+		</if>
+		ORDER BY ref3 DESC
+		
+	</select>
+	
+	
+	<insert id="insertPerfectwinRslt" parameterType="java.util.HashMap">
+		INSERT	/** [2019.08.11] com.example.demo.mapper.TestMapper.xml - tmp_perfectwin_rslt  */
+			INTO tmp_perfectwin_rslt (
+				tuid
+				,tobe_msg_id
+				,ref3
+				,res_status_code
+				,res_body
+				,reg_dtm
+			)
+		VALUES(
+				#{tuid}
+				,#{tobe_msg_id}
+				,#{ref3}
+				,#{res_status_code}
+				,#{res_body}
+				,now()
+		)     
+		</insert>
+		
+	
+	
+</mapper>

@@ -1,6 +1,5 @@
-//hello world
-//michael test
-//merge first
+// 다 지우고
+
 public static void main(String args[]){
-    System.out.println("안녕하세요");
+    System.out.println("Hello world");
 }

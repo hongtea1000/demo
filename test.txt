@@ -2,3 +2,4 @@ select '' AS ip_addr union
 test
 test1
 test2
+test3

@@ -38,6 +38,8 @@ public class DemoApplication {
             sessionFactory.setMapperLocations(res);
             
             return sessionFactory.getObject();
+            
+            
     }
 	
 }

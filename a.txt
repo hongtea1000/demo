@@ -1,3 +1,6 @@
-hello world
-michael test
-merge first
+//hello world
+//michael test
+//merge first
+public static void main(String args[]){
+    System.out.println("안녕하세요");
+}

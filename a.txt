@@ -2,5 +2,6 @@
 //michael test
 //merge first
 public static void main(String args[]){
-    System.out.println("ì•ˆë…•í•˜ì„¸ìš”");
+    System.out.println("ÇÑ±Û±úÁü");
 }
+good test

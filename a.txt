@@ -1,7 +1,4 @@
-//hello world
-//michael test
-//merge first
 public static void main(String args[]){
-    System.out.println("ÇÑ±Û±úÁü");
+    System.out.println("Hello world");
 }
-good test
+//good test
